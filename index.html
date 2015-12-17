@@ -7,8 +7,11 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Curate Health Record</title>
 
+    <!-- CCR -->
+    <link href="css/ccr.css" rel="stylesheet">
+    
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,10 +21,336 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello, world!</h1>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+
+    <header>
+
+      <div class="demographics">
+        
+        <div>
+          <img src="#">
+          <h1>Ellen Ross</h1>
+          <p>March 7, 1960 (DOB)</p>
+          <p>Ellen is a married Asian female who observes Christianity and speaks English.</p>
+        </div>
+
+        <div>
+          <p><span class="label">Address:</span><br>
+            17 Daws Road<br>
+            Portland, OR 97006<br>
+        </div>
+
+        <div>
+          <p><span class="label">Telephone:</span><br>
+            415.555.1229
+        </div>
+        
+        <div>
+          <p><span class="label">Provider (Primary)</span><br>
+            Ashby Medical Center<br>
+            1002 Healthcare Dr,<br>
+            Portland, OR 97006<br>
+            415.555.1200
+        </div>
+
+      </div>
+
+      <div class="Allergies">
+        <h2>Allergies</h2>
+        <ul>
+          <li>Penicillin, Hives, 4/5</li>
+          <li>Codeine, Shortness of Breath, 3/5</li>
+          <li>Bee Stings, Anaphylatic Shock 5/5</li>
+        </ul>
+      </div>
+
+    </header>
+
+    <div class="content-wrap">
+
+      <section>
+
+        <h2>Medications</h2>
+
+        <div class="entry">
+          <p><span class="date">March 28, 2005</span><br>
+          <span class="title">Acetaminophen with Codiene / Liquid</span><br>
+          <span class="detail">Ashby Medical Center</span><br>
+          <span class="notes">Take two puffs 1 time per day</span></p>
+        </div>  
+
+        <div class="entry">
+          <p><span class="date">December 10, 2003</span><br>
+          <span class="title">Indomethacin / 50 mg</span><br>
+          <span class="detail">Ashby Medical Center</span><br>
+          <span class="notes">Take two tablets by mouth per day with food</span></p>
+        </div>
+        
+        <h3>Medication History</h3>
+
+        <div class="entry">
+          <p><span class="date">March, 2005 - January, 2007</span><br>
+          <span class="title">Acetaminophen with Codiene / Liquid Unit</span></p>
+        </div>
+
+        <div class="entry">  
+          <p><span class="date">December, 2003 - June, 2004</span><br>
+          <span class="title">Indomethacin / 50 mg</span></p>
+        </div>
+
+      </section>
+      
+      <section>
+        <h2>Vitals</h2>
+      </section>
+
+      <section>
+
+        <h2>Encounters</h2>
+
+        <div class="entry">
+          <p><span class="date">March 28, 2005</span><br>
+          <span class="title">ED Visit for Ankle Sprain</span><br>
+          <span class="detail">Dr. Henry Seven, Community Hospital</span></p>
+        </div>
+
+        <div  class="entry">
+          <p><span class="date">September 28, 2002</span><br>
+          <span class="title">Gall Bladder Surgery</span><br>
+          <span class="detail">Dr. Bala Venktaraman, Ashby Medical Center</span></p>
+        </div>
+
+        <div  class="entry">
+          <p><span class="date">March 21, 2002</span><br>
+          <span class="title">Labor and Delivery</span><br>
+          <span class="detail">Dr. Tiffany Martinez, Ashby Medical Center</span></p>
+        </div>
+
+        <div class="entry">
+          <p><span class="date">October 28, 2001</span><br>
+          <span class="title">ED Visit for Acute Cholecystitis</span><br>
+          <span class="detail">Dr. Tim Lee, Ashby Medical Center</span></p>
+        </div>
+
+      </section>
+    
+      <section>
+        <h2>Labs</h2>
+      </section>
+
+      <section>
+        
+        <h2>Immunizations</h2>
+
+        <div class="entry">
+          <p><span class="date">May, 2001</span><br>
+          <span class="title">Inuenza virus vaccine, IM / 50 mcg</span><br>
+          <span class="detail">Injection</span><br>
+          <span class="notes">Possible ue-like symptoms for three days</span></p>
+        </div>
+
+        <div class="entry">
+          <p><span class="date">April, 2000</span><br>
+          <span class="title">Tetanus and diphtheria toxoids, IM / 50 mcg</span><br>
+          <span class="detail">Injection</span><br>
+          <span class="notes">Mild pain or soreness in the local area</span></p>
+        </div>
+      
+      </section>
+
+      <section>
+
+        <h2>Procedures</h2>
+
+        <div class="entry">
+          <p><span class="date">September 28, 2002</span><br>
+          <span class="title">Laparoscopic Cholecystectomy</span><br>
+          <span class="detail">Dr. Bala Venktaraman, Ashby Medical Center</span></p>
+        </div>
+
+        <div class="entry"> 
+          <p><span class="date">March 22, 2002</span><br>
+          <span class="title">Cesarian Section</span><br>
+          <span class="detail">Dr. Tiffany Martinez, Ashby Medical Center</span></p>
+        </div>
+
+      </section>
+
+      <section>
+
+        <h2>Problems</h2>
+
+        <div class="entry">
+          <p><span class="date">March 28, 2005</span><br>
+          <span class="title">Ankle Sprain</span><br>
+          <span class="notes">Slipped on ice and fell</span></p>
+        </div>
+
+        <div class="entry">
+          <p><span class="date">September, 28 2002</span><br>
+          <span class="title">Cholecystitis</span><br>
+          <span class="notes">Surgery postponed until after delivery</span></p>
+        </div>
+      
+      </section>
+      
+      <section>
+      
+        <h2>Plan of Care</h2>
+
+        <div class="entry">
+          <p><span class="date">May 28, 2007</span><br>
+          <span class="title">Office consultation</span><br>
+          <span class="detail">Consultation with Dr. George Potomac for Asthma</span></p>
+        </div>
+
+        <div class="entry">
+          <p><span class="date">June 1, 2007</span><br>
+          <span class="title">Chest X-Ray</span></p>
+        </div>
+
+        <div  class="entry">
+          <p><span class="date">May 28, 2007</span><br>
+          <span class="title">Sputum Culture</span></p>
+        </div>
+
+      </section>
+
+      <section>
+      
+        <h2>Family History</h2>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Immediate</th>
+              <th>Father</th>
+              <th>Mother</th>
+              <th>Sister</th>
+              <th>Brother</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Maternal</th>
+              <th>Grandfather</th>
+              <th>Grandmother</th>
+              <th>Aunt</th>
+              <th>Uncle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Paternal</th>
+              <th>Grandfather</th>
+              <th>Grandmother</th>
+              <th>Aunt</th>
+              <th>Uncle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <th>Issue</th>
+              <td>yes</td>
+              <td>no</td>
+              <td>yes</td>
+              <td>yes</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </section>
+
+    </div>
 
   </body>
 </html>
