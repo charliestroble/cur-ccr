@@ -1,5 +1,5 @@
 <!--* Copyright Epic Systems Corporation 2010-2014. All rights reserved.-->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:its="http://www.w3.org/2005/11/its"  xmlns:epicdoc="urn:epicsystems-com:Community.2006-04.Services"  xmlns:cldoc="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc"  exclude-result-prefixes="epicdoc cldoc sdtc">    <xsl:param name="context" />
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"  xmlns:its="http://www.w3.org/2005/11/its"  xmlns:epicdoc="urn:epicsystems-com:Community.2006-04.Services"  xmlns:cldoc="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc"  exclude-result-prefixes="epicdoc cldoc sdtc">    <xsl:param name="context" />
 
     <xsl:variable name="lucyMyCh" select="boolean(cldoc:ClinicalDocument/cldoc:templateId/@root='1.2.840.114350.1.72.1.77896771')" />
     <xsl:variable name="isPublicStr">
@@ -71,12 +71,15 @@
     
         <style type="text/css">
 
+            <!--GLOBAL STYLES -->
+            
             body {
                 font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: 13px;
             }
 
             #DocumentHeaderSection {
-                background: #ddd;
+                background: #f8f8f8;
                 position: absolute;
                 left: 0;
                 top: 0;
@@ -104,6 +107,18 @@
                 border-bottom:1px solid #ccc;
             }
 
+            .label {
+                color: #b3b3b3;
+                font-size: 12px;
+                text-transform: uppercase;
+                font-weight: normal;
+            }
+
+            .item-note {
+                color:#b3b3b3;
+                font-weight: normal;
+            }
+
             .innerHead {
                 color:#0000ff;
             }
@@ -111,6 +126,45 @@
             .innerHead #HeaderText {
                 
             }
+
+            .strong {
+                font-weight:bold;
+            }
+
+            ul {
+                margin:0;
+                padding:0;
+            }
+
+            ul li {
+                list-style:none;
+            }
+
+            <!-- PATIENT DEMOGRAPHICS -->
+
+            .ptDetails {
+                font-style:italic ;
+                font-size: 16px;
+            }
+
+            .ptName {
+                color:green;
+                font-weight:normal;
+            }
+
+            #langBorn {
+                font-weight:bold;
+            }
+
+            #patientDemog .ContentText {
+                font-weight:bold;
+            }
+
+            .list-content {
+                margin-bottom: 10px;
+            }
+
+
 
 
         </style>
@@ -135,7 +189,6 @@
                         </div>
                     </xsl:when>
                     <xsl:otherwise>
-                        <div class="innerHead">
                             <span id="HeaderText"> <!--<xsl:value-of select="cldoc:title" /> <xsl:text> - </xsl:text> --><xsl:apply-templates select="cldoc:recordTarget/cldoc:patientRole/cldoc:patient"> <!--<xsl:with-param name="documentDate" select="cldoc:effectiveTime/@value"/>--> </xsl:apply-templates>
                             </span>
                             <!--<span id="AsOfEpic">
@@ -143,7 +196,7 @@
                                     <xsl:call-template name="Date"> <xsl:with-param name="date" select="cldoc:effectiveTime/@value" /> </xsl:call-template>
                                 </span> <xsl:text>&#160;</xsl:text>
                             </span>-->
-                        </div>
+                            <xsl:if test="not($lucyMyCh)"> <xsl:call-template name="PatientDemographicsSection"/> </xsl:if>
                     </xsl:otherwise>
                 </xsl:choose>
             </div>
@@ -193,7 +246,7 @@
     </div>
     <div id="DocBody" role="main">
         <div id="InnerDocBody">
-            <xsl:if test="not($lucyMyCh)"> <xsl:call-template name="PatientDemographicsSection"/> </xsl:if>
+            <!--<xsl:if test="not($lucyMyCh)"> <xsl:call-template name="PatientDemographicsSection"/> </xsl:if>-->
             <xsl:if test="cldoc:component/cldoc:structuredBody">  <xsl:apply-templates select="cldoc:component/cldoc:structuredBody"/> </xsl:if>
             <xsl:if test="cldoc:component/cldoc:nonXMLBody/cldoc:text/@mediaType='text/plain'">  <xsl:call-template name="nonXMLTextSection" /> </xsl:if>
             <xsl:if test="not($lucyMyCh)"> <xsl:call-template name="DocumentMetadataSection" /> </xsl:if>
@@ -213,7 +266,7 @@
 </html>
 </xsl:template>
 
-<xsl:template name="PatientDemographicsSection">
+<!--<xsl:template name="PatientDemographicsSection">
     <xsl:variable name="address">
         <xsl:for-each select="cldoc:recordTarget/cldoc:patientRole/cldoc:addr">
             <xsl:call-template name="Address">
@@ -286,6 +339,45 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+        </div>
+    </div>
+</xsl:template>-->
+<xsl:template name="PatientDemographicsSection">
+    <xsl:variable name="address">
+        <xsl:for-each select="cldoc:recordTarget/cldoc:patientRole/cldoc:addr">
+            <xsl:call-template name="Address">
+                <xsl:with-param name="address" select="." />
+                <xsl:with-param name="numAddresses" select="count(cldoc:recordTarget/cldoc:patientRole/cldoc:addr)" />
+            </xsl:call-template>
+        </xsl:for-each>
+    </xsl:variable>
+    <xsl:variable name="telecom">
+        <xsl:for-each select="cldoc:recordTarget/cldoc:patientRole/cldoc:telecom">
+            <xsl:call-template name="Telecom"/>
+        </xsl:for-each>
+    </xsl:variable>
+    
+    <div id="patientDemog">
+        <div class="h_ h_E"> <div class="innerHead"><!--<xsl:value-of select="$DemogTitle"/>--></div> </div>
+        <div class="body_ body_E">
+            <div class="ContentText">
+                <ul>
+                    <li class="label">Address</li>
+                    <li class="list-content">
+                        <xsl:choose>
+                            <xsl:when test="$address!=''"><xsl:copy-of select="$address"/></xsl:when>
+                            <xsl:otherwise><xsl:value-of select="$Unknown"/></xsl:otherwise>
+                        </xsl:choose>
+                    </li>
+                    <li class="label">Contact</li>
+                    <li class="list-content">
+                        <xsl:choose>
+                            <xsl:when test="$telecom!=''"><xsl:copy-of select="$telecom"/></xsl:when>
+                            <xsl:otherwise><xsl:value-of select="$Unknown"/></xsl:otherwise>
+                        </xsl:choose>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -476,16 +568,18 @@
                     <xsl:with-param name="date" select="cldoc:birthTime/@value" />
                 </xsl:call-template>
             </xsl:variable>
-            <span id="langBorn"><xsl:value-of select="$birthDate"/> (DOB)</span>
+            <span id="langBorn"><xsl:value-of select="$birthDate"/></span><span class="item-note"> (DOB)</span>
         </xsl:if>
     </span>
     <p class="ptDetails">
-        <xsl:call-template name="Name">
-            <xsl:with-param name="name" select="cldoc:name[1]/cldoc:given"/>
-        </xsl:call-template>
-        is (a married) (Asian)
-        <xsl:call-template name="AdministrativeGenderCode"> <xsl:with-param name="gender_code" select="cldoc:administrativeGenderCode" /> </xsl:call-template>
-        (who observes Christianity) and speaks English.
+        <span class="strong">
+            <xsl:call-template name="Name">
+                <xsl:with-param name="name" select="cldoc:name[1]/cldoc:given"/>
+            </xsl:call-template>
+        </span>
+        is <span class="strong">(a married)</span> <span class="strong"> (Asian)
+        <xsl:call-template name="AdministrativeGenderCode"> <xsl:with-param name="gender_code" select="cldoc:administrativeGenderCode" /> </xsl:call-template></span>
+        who observes <span class="strong">(Christianity)</span> and speaks <span class="strong">(English)</span>.
     </p>
 </xsl:template>
 
@@ -1236,7 +1330,7 @@
     <xsl:template name="Address">
         <xsl:param name="address" select="."/>
         <xsl:variable name="addressHTML">
-            <xsl:for-each select="$address/cldoc:streetAddressLine"> <xsl:if test="not(@nullFlavor)"> <xsl:value-of select="." /> <br/> </xsl:if> </xsl:for-each>
+            <xsl:for-each select="$address/cldoc:streetAddressLine"><xsl:if test="not(@nullFlavor)"> <xsl:value-of select="." /> <br/> </xsl:if> </xsl:for-each>
             <xsl:value-of select="$address/cldoc:city" />
             <xsl:if test="$address/cldoc:city and not($address/cldoc:city/@nullFlavor)">
                 <xsl:if test="$address/cldoc:state or $address/cldoc:postalCode"> <xsl:text>,</xsl:text> </xsl:if>
@@ -1285,7 +1379,9 @@
             </xsl:otherwise>
         </xsl:choose>
          <xsl:if test="$telecom/@value and $telecom/@use and not($telecom/@nullFlavor)">
-            <xsl:text> (</xsl:text> <xsl:call-template name="Use"> <xsl:with-param name="use" select="$telecom/@use"/> </xsl:call-template> <xsl:text>)</xsl:text>
+            <span class="item-note">
+                <xsl:text> (</xsl:text> <xsl:call-template name="Use"> <xsl:with-param name="use" select="$telecom/@use"/> </xsl:call-template> <xsl:text>)</xsl:text>
+            </span>
         </xsl:if>   <xsl:if test="$telecom/@value"><br/></xsl:if>
     </xsl:template>
     
