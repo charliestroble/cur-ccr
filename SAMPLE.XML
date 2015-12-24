@@ -1,0 +1,1001 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/xsl' href='CURATIO.XSL'?>
+<ClinicalDocument xmlns="urn:hl7-org:v3">
+   <realmCode code="US" />
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3" />
+   <templateId root="1.2.840.114350.1.72.1.51693" />
+   <templateId root="2.16.840.1.113883.10.20.22.1.1" />
+   <templateId root="1.2.840.114350.1.72.1.77896772" />
+   <id assigningAuthorityName="EPC" root="1.2.840.114350.1.13.368.2.7.8.688883.791967" />
+   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Summarization of Episode Note" />
+   <title>Continuity of Care Document</title>
+   <effectiveTime value="20150804071346-0500" />
+   <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
+   <languageCode code="en-US" />
+   <setId assigningAuthorityName="EPC" extension="41b8a86c-3aa2-11e5-bca2-005056b90075" root="1.2.840.114350.1.13.368.2.7.1.1" />
+   <versionNumber value="1" />
+   
+   <recordTarget>
+      <patientRole>
+         <id root="1.2.840.114350.1.13.368.2.7.3.688884.100" extension="SMO6446704" />
+         <addr use="HP">
+            <streetAddressLine>15831 MEADOW LANE</streetAddressLine>
+            <city>OVERLAND PARK</city>
+            <state>KS</state>
+            <postalCode>66224</postalCode>
+         </addr>
+         <telecom use="HP" value="tel:+1-913-206-9649" />
+         <telecom value="mailto://dang.v.dao@gmail.com" />
+         <patient>
+            <name use="L">
+               <given>Dao</given>
+               <given>V</given>
+               <family>Dang</family>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1" codeSystemName="AdministrativeGenderCode" displayName="Male" />
+            <birthTime value="19800105" />
+            <maritalStatusCode nullFlavor="UNK" />
+            <raceCode code="2028-9" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity" displayName="Asian" />
+            <ethnicGroupCode code="2186-5" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity" displayName="Not Hispanic or Latino" />
+            <languageCommunication>
+               <languageCode code="eng" />
+               <preferenceInd value="true" />
+            </languageCommunication>
+         </patient>
+         <providerOrganization>
+            <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+            <name>Saint Luke's Health System</name>
+            <telecom use="WP" value="tel:+1-816-932-3366" />
+            <addr>
+               <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+               <city>Kansas City</city>
+               <state>MO</state>
+               <postalCode>64111</postalCode>
+            </addr>
+         </providerOrganization>
+      </patientRole>
+   </recordTarget>
+   
+   <author>
+      <time value="20150804071346" />
+      <assignedAuthor>
+         <id root="1.2.840.114350.1.1" extension="8.1" />
+         <addr nullFlavor="NA">
+            <streetAddressLine nullFlavor="UNK" />
+            <city nullFlavor="UNK" />
+         </addr>
+         <telecom nullFlavor="NA" />
+         <assignedAuthoringDevice>
+            <manufacturerModelName>Epic - Version 8.1</manufacturerModelName>
+            <softwareName>Epic - Version 8.1</softwareName>
+         </assignedAuthoringDevice>
+         <representedOrganization>
+            <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+            <name>Saint Luke's Health System</name>
+            <telecom use="WP" value="tel:+1-816-932-3366" />
+            <addr>
+               <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+               <city>Kansas City</city>
+               <state>MO</state>
+               <postalCode>64111</postalCode>
+            </addr>
+         </representedOrganization>
+      </assignedAuthor>
+   </author>
+   
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+            <name>Saint Luke's Health System</name>
+            <telecom use="WP" value="tel:+1-816-932-3366" />
+            <addr>
+               <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+               <city>Kansas City</city>
+               <state>MO</state>
+               <postalCode>64111</postalCode>
+            </addr>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   
+   <participant typeCode="IND">
+      <templateId root="2.16.840.1.113883.3.88.11.32.3" />
+      <templateId root="2.16.840.1.113883.3.88.11.83.3" />
+      <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.4" />
+      <time value="20140204" />
+      <associatedEntity classCode="ECON">
+         <id nullFlavor="UNK" />
+         <addr nullFlavor="NA" />
+         <telecom use="HP" value="tel:+1-816-804-3803" />
+         <associatedPerson>
+            <name use="P">
+               <given>DANG,AMANDA</given>
+            </name>
+         </associatedPerson>
+      </associatedEntity>
+   </participant>
+   
+   <documentationOf typeCode="DOC">
+      <serviceEvent classCode="PCPR">
+         <effectiveTime>
+            <low value="20130624092800" />
+            <high value="20130624235900" />
+         </effectiveTime>
+         <performer typeCode="PRF">
+            <templateId root="2.16.840.1.113883.3.88.11.32.4" />
+            <templateId root="2.16.840.1.113883.3.88.11.83.4" />
+            <templateId root="1.3.6.1.4.1.19376.1.5.3.1.2.3" />
+            <functionCode code="PCP" codeSystem="2.16.840.1.113883.5.88" codeSystemName="ParticipationFunction" displayName="Primary Care Provider">
+               <originalText>Primary Care Provider</originalText>
+            </functionCode>
+            <time>
+               <low value="20150401" />
+               <high nullFlavor="PINF" />
+            </time>
+            <assignedEntity>
+               <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+               <addr use="WP">
+                  <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                  <city>BELTON</city>
+                  <state>MO</state>
+                  <postalCode>64012</postalCode>
+                  <country>USA</country>
+               </addr>
+               <telecom use="WP" value="tel:+1-816-922-2161" />
+               <telecom value="fax:+1-816-922-4690" />
+               <assignedPerson>
+                  <name>
+                     <given>Deborah</given>
+                     <given>S</given>
+                     <family>Davis</family>
+                  </name>
+               </assignedPerson>
+            </assignedEntity>
+         </performer>
+      </serviceEvent>
+   </documentationOf>
+   
+   <componentOf>
+      <encompassingEncounter>
+         <id root="1.2.840.114350.1.13.368.2.7.3.698084.8" extension="2171227" />
+         <effectiveTime value="20130624092800">
+            <low value="20130624092800" />
+            <high value="20130624235900" />
+         </effectiveTime>
+         <dischargeDispositionCode code="1" codeSystem="1.2.840.114350.1.13.368.2.7.4.698084.18888" codeSystemName="EPC" displayName="Home or Self Care" />
+         <encounterParticipant typeCode="ATND">
+            <time value="20130624092800" />
+            <assignedEntity>
+               <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+               <addr use="WP">
+                  <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                  <city>BELTON</city>
+                  <state>MO</state>
+                  <postalCode>64012</postalCode>
+                  <country>USA</country>
+               </addr>
+               <telecom use="WP" value="tel:+1-816-922-2161" />
+               <telecom value="fax:+1-816-922-4690" />
+               <assignedPerson>
+                  <name>
+                     <given>Deborah</given>
+                     <given>S</given>
+                     <family>Davis</family>
+                  </name>
+               </assignedPerson>
+            </assignedEntity>
+         </encounterParticipant>
+         <encounterParticipant typeCode="ADM">
+            <time value="20130624092800" />
+            <assignedEntity>
+               <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+               <addr use="WP">
+                  <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                  <city>BELTON</city>
+                  <state>MO</state>
+                  <postalCode>64012</postalCode>
+                  <country>USA</country>
+               </addr>
+               <telecom use="WP" value="tel:+1-816-922-2161" />
+               <telecom value="fax:+1-816-922-4690" />
+               <assignedPerson>
+                  <name>
+                     <given>Deborah</given>
+                     <given>S</given>
+                     <family>Davis</family>
+                  </name>
+               </assignedPerson>
+            </assignedEntity>
+         </encounterParticipant>
+         <location>
+            <healthCareFacility>
+               <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+   
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <code code="X-DOCCMT" displayName="Document Comments" />
+               <title>Note from Saint Luke's Health System</title>
+               <text>This document contains information that was shared with Dao V Dang. It may not contain the entire record from Saint Luke's Health System.</text>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.1.3" />
+               <templateId root="2.16.840.1.113883.3.88.11.83.127" />
+               <templateId root="1.3.6.1.4.1.19376.1.5.3.1.1.5.3.3" />
+               <templateId root="2.16.840.1.113883.10.20.22.2.22" />
+               <code code="46240-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF ENCOUNTERS" />
+               <title>Encounter Details</title>
+               <text>
+                  <table>
+                     <colgroup>
+                        <col width="10%" />
+                        <col width="15%" />
+                        <col width="25%" />
+                        <col width="25%" />
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>Date</th>
+                           <th>Type</th>
+                           <th>Department</th>
+                           <th>Care Team</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ID="encounter2" styleCode="normRow">
+                           <td>06/24/2013</td>
+                           <td ID="type3">Hospital Encounter</td>
+                           <td>
+                              <paragraph>SLS X-ray</paragraph>
+                              <paragraph>12300 Metcalf</paragraph>
+                              <paragraph>Overland Park, KS 66213</paragraph>
+                              <paragraph>913-317-7678</paragraph>
+                           </td>
+                           <td>
+                              <paragraph styleCode="Bold">Davis, Deborah S, MD</paragraph>
+                              <paragraph>17140 Bel-Ray Place</paragraph>
+                              <paragraph>BELTON, MO 64012</paragraph>
+                              <paragraph>816-922-2161</paragraph>
+                              <paragraph>816-922-4690 (Fax)</paragraph>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <encounter classCode="ENC" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.49" />
+                     <id assigningAuthorityName="EPIC" root="1.2.840.114350.1.13.368.2.7.3.698084.8" extension="2171227" />
+                     <code nullFlavor="OTH">
+                        <translation code="3" codeSystem="1.2.840.114350.1.13.368.2.7.4.698084.30" codeSystemName="Epic.EncounterType" displayName="Hospital Encounter">
+                           <originalText>
+                              <reference value="#type3" />
+                           </originalText>
+                        </translation>
+                     </code>
+                     <text>
+                        <reference value="#encounter2" />
+                     </text>
+                     <statusCode code="normal" />
+                     <effectiveTime>
+                        <low value="20130624092800-0500" />
+                        <high value="20130624235900-0500" />
+                     </effectiveTime>
+                     <performer typeCode="PRF">
+                        <assignedEntity classCode="ASSIGNED">
+                           <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+                           <addr>
+                              <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                              <city>BELTON</city>
+                              <state>MO</state>
+                              <postalCode>64012</postalCode>
+                              <country>USA</country>
+                           </addr>
+                           <telecom use="WP" value="tel:+1-816-922-2161" />
+                           <telecom value="fax:+1-816-922-4690" />
+                           <assignedPerson>
+                              <name>
+                                 <given>Deborah</given>
+                                 <given>S</given>
+                                 <family>Davis</family>
+                              </name>
+                           </assignedPerson>
+                           <representedOrganization classCode="ORG">
+                              <name nullFlavor="UNK" />
+                              <telecom nullFlavor="UNK" />
+                              <addr nullFlavor="UNK" />
+                           </representedOrganization>
+                        </assignedEntity>
+                     </performer>
+                     <participant typeCode="LOC">
+                        <templateId root="2.16.840.1.113883.10.20.22.4.32" />
+                        <participantRole classCode="SDLOC">
+                           <id root="1.2.840.114350.1.13.368.2.7.2.686980" extension="20102800" />
+                           <code nullFlavor="UNK">
+                              <originalText>Radiology</originalText>
+                           </code>
+                           <playingEntity classCode="PLC">
+                              <name>SLS X-ray</name>
+                              <desc>Radiology</desc>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                     <entryRelationship typeCode="RSON">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.1.28" />
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.5" />
+                           <id root="1.2.840.114350.1.13.368.2.7.2.696871" extension="14458" />
+                           <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Problem" />
+                           <text>Hepatitis B carrier</text>
+                           <statusCode code="completed" />
+                           <effectiveTime nullFlavor="UNK">
+                              <low nullFlavor="UNK" />
+                           </effectiveTime>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="235871004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hepatitis B carrier" xsi:type="CD" />
+                        </observation>
+                     </entryRelationship>
+                     <reference typeCode="REFR">
+                        <externalObservation>
+                           <code code="4" codeSystem="1.2.840.114350.1.13.368.2.7.3.688882.8100" codeSystemName="Epic.Encounter.Contents" />
+                        </externalObservation>
+                     </reference>
+                  </encounter>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.6.1" />
+               <id root="41BD892C-3AA2-11E5-BCA2-005056B90075" />
+               <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Allergies, Adverse Reactions, Alerts" />
+               <title>Active Allergies and Adverse Reactions - as of 08/04/2015</title>
+               <text>
+                  <content ID="nof4">Not on File</content>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN" nullFlavor="ASKU">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.30" />
+                     <id nullFlavor="NA" />
+                     <code code="48765-2" codeSystem="2.16.840.1.113883.6.1" />
+                     <statusCode code="active" />
+                     <effectiveTime>
+                        <low nullFlavor="UNK" />
+                     </effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN" negationInd="false">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.7" />
+                           <id nullFlavor="NA" />
+                           <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" />
+                           <text>
+                              <reference value="#nof4" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime nullFlavor="NA" />
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="420134006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Propensity to adverse reactions" xsi:type="CD" />
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.22.4.8" />
+                                 <code code="SEV" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" displayName="Severity" />
+                                 <statusCode code="completed" />
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CD" nullFlavor="UNK" />
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.1.1" />
+               <id root="41BDC1B2-3AA2-11E5-BCA2-005056B90075" />
+               <code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="History of Medication Usage" />
+               <title>Current Medications - as of 08/04/2015</title>
+               <text>
+                  <content ID="nof5">Not on file</content>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="INT" nullFlavor="ASKU">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.16" />
+                     <id nullFlavor="NA" />
+                     <text mediaType="text/xml" />
+                     <statusCode code="completed" />
+                     <effectiveTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IVL_TS">
+                        <low nullFlavor="UNK" />
+                        <high nullFlavor="UNK" />
+                     </effectiveTime>
+                     <consumable typeCode="CSM">
+                        <manufacturedProduct classCode="MANU">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                           <templateId root="2.16.840.1.113883.10.20.1.53" />
+                           <templateId root="2.16.840.1.113883.3.88.11.32.9" />
+                           <templateId root="2.16.840.1.113883.3.88.11.83.8.2" />
+                           <templateId root="2.16.840.1.113883.3.249.11.100.13" />
+                           <templateId root="2.16.840.1.113883.10.20.22.4.23" />
+                           <manufacturedMaterial>
+                              <code codeSystem="2.16.840.1.113883.6.88" nullFlavor="NI">
+                                 <originalText>
+                                    <reference value="#nof5" />
+                                 </originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.5.1" />
+               <id root="41BDFBBE-3AA2-11E5-BCA2-005056B90075" />
+               <code code="11450-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="PROBLEM LIST" />
+               <title>Active Problems - as of 08/04/2015</title>
+               <text>
+                  <table>
+                     <colgroup>
+                        <col width="25%" />
+                        <col width="75%" />
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>Problem</th>
+                           <th>Noted Date</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ID="problem6" styleCode="normRow">
+                           <td ID="problem6name" styleCode="header">Nonalcoholic fatty liver disease</td>
+                           <td>08/02/2013</td>
+                        </tr>
+                        <tr ID="problem7" styleCode="altRow">
+                           <td ID="problem7name" styleCode="header">Hepatitis, B Virus Carrier State</td>
+                           <td>08/19/2011</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.3" />
+                     <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="2006735" />
+                     <code code="CONC" codeSystem="2.16.840.1.113883.5.6" />
+                     <statusCode code="active" />
+                     <effectiveTime>
+                        <low value="20130802" />
+                     </effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                           <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="2006735" />
+                           <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Problem" />
+                           <text>
+                              <reference value="#problem6name" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime>
+                              <low value="20130802" />
+                           </effectiveTime>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="79720007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Nonalcoholic fatty liver disease" xsi:type="CD">
+                              <originalText>
+                                 <reference value="#problem6name" />
+                              </originalText>
+                              <translation code="571.8" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-9CM" displayName="Nonalcoholic fatty liver disease" />
+                              <translation code="K76.89" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Nonalcoholic fatty liver disease" />
+                           </value>
+                           <author>
+                              <time value="20150512211712+0000" />
+                              <assignedAuthor>
+                                 <id root="1.2.840.114350.1.13.368.2.7.2.697780" extension="EDIENCCV" />
+                                 <addr nullFlavor="UNK" />
+                                 <telecom nullFlavor="UNK" />
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Encounter Conversion</given>
+                                       <family>I</family>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+                                    <name>Saint Luke's Health System</name>
+                                    <telecom use="WP" value="tel:+1-816-932-3366" />
+                                    <addr>
+                                       <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+                                       <city>Kansas City</city>
+                                       <state>MO</state>
+                                       <postalCode>64111</postalCode>
+                                    </addr>
+                                 </representedOrganization>
+                              </assignedAuthor>
+                           </author>
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                                 <statusCode code="completed" />
+                                 <effectiveTime>
+                                    <low value="20130802" />
+                                 </effectiveTime>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" xsi:type="CE" />
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.3" />
+                     <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="2637022" />
+                     <code code="CONC" codeSystem="2.16.840.1.113883.5.6" />
+                     <statusCode code="active" />
+                     <effectiveTime>
+                        <low value="20110819" />
+                     </effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                           <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="2637022" />
+                           <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Problem" />
+                           <text>
+                              <reference value="#problem7name" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime>
+                              <low value="20110819" />
+                           </effectiveTime>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="235871004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hepatitis, B Virus Carrier State" xsi:type="CD">
+                              <originalText>
+                                 <reference value="#problem7name" />
+                              </originalText>
+                              <translation code="V02.61" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-9CM" displayName="Hepatitis, B Virus Carrier State" />
+                              <translation code="Z22.51" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Hepatitis, B Virus Carrier State" />
+                           </value>
+                           <author>
+                              <time value="20150512223722+0000" />
+                              <assignedAuthor>
+                                 <id root="1.2.840.114350.1.13.368.2.7.2.697780" extension="7300" />
+                                 <addr nullFlavor="UNK" />
+                                 <telecom nullFlavor="UNK" />
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Deborah</given>
+                                       <given>S</given>
+                                       <family>Davis</family>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+                                    <name>Saint Luke's Health System</name>
+                                    <telecom use="WP" value="tel:+1-816-932-3366" />
+                                    <addr>
+                                       <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+                                       <city>Kansas City</city>
+                                       <state>MO</state>
+                                       <postalCode>64111</postalCode>
+                                    </addr>
+                                 </representedOrganization>
+                              </assignedAuthor>
+                           </author>
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                                 <statusCode code="completed" />
+                                 <effectiveTime>
+                                    <low value="20110819" />
+                                 </effectiveTime>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" xsi:type="CE" />
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.2.1" />
+               <id root="41BEABC2-3AA2-11E5-BCA2-005056B90075" />
+               <code code="11369-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HISTORY OF IMMUNIZATIONS" />
+               <title>Immunizations - as of 08/04/2015</title>
+               <text>
+                  <table>
+                     <colgroup>
+                        <col width="25%" />
+                        <col width="50%" />
+                        <col width="25%" />
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Dates Previously Given</th>
+                           <th>Next Due</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ID="immunization8">
+                           <td ID="immunization8Name">Influenza TIV (IM)</td>
+                           <td>
+                              <content>01/01/2012</content>
+                           </td>
+                           <td />
+                        </tr>
+                        <tr ID="immunization9">
+                           <td ID="immunization9Name">Td</td>
+                           <td>
+                              <content>12/31/2009</content>
+                           </td>
+                           <td />
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.52" />
+                     <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="642535" />
+                     <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+                     <text mediaType="text/xml">
+                        <reference value="#immunization8" />
+                     </text>
+                     <statusCode code="completed" />
+                     <effectiveTime value="20120101" />
+                     <consumable typeCode="CSM">
+                        <manufacturedProduct classCode="MANU">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                           <templateId root="2.16.840.1.113883.10.20.1.53" />
+                           <templateId root="2.16.840.1.113883.3.88.11.32.9" />
+                           <templateId root="2.16.840.1.113883.3.88.11.83.8.2" />
+                           <templateId root="2.16.840.1.113883.3.249.11.100.13" />
+                           <templateId root="2.16.840.1.113883.10.20.22.4.54" />
+                           <manufacturedMaterial>
+                              <code code="140" codeSystemName="VACC" displayName="INFLUENZA TIV (IM)">
+                                 <originalText>
+                                    <reference value="#immunization8Name" />
+                                 </originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="false">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.52" />
+                     <id root="1.2.840.114350.1.13.368.2.7.2.768076" extension="882142" />
+                     <code code="IMMUNIZ" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" />
+                     <text mediaType="text/xml">
+                        <reference value="#immunization9" />
+                     </text>
+                     <statusCode code="completed" />
+                     <effectiveTime value="20091231" />
+                     <consumable typeCode="CSM">
+                        <manufacturedProduct classCode="MANU">
+                           <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                           <templateId root="2.16.840.1.113883.10.20.1.53" />
+                           <templateId root="2.16.840.1.113883.3.88.11.32.9" />
+                           <templateId root="2.16.840.1.113883.3.88.11.83.8.2" />
+                           <templateId root="2.16.840.1.113883.3.249.11.100.13" />
+                           <templateId root="2.16.840.1.113883.10.20.22.4.54" />
+                           <manufacturedMaterial>
+                              <code code="9" codeSystemName="VACC" displayName="TD">
+                                 <originalText>
+                                    <reference value="#immunization9Name" />
+                                 </originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.11.1" />
+               <id root="41C1E670-3AA2-11E5-BCA2-005056B90075" />
+               <code code="10183-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="HOSPITAL DISCHARGE MEDICATIONS" />
+               <title>Medications at Time of Discharge</title>
+               <text>
+                  <table>
+                     <colgroup>
+                        <col width="25%" />
+                        <col width="25%" />
+                        <col width="13%" />
+                        <col width="12%" />
+                        <col width="12%" />
+                        <col width="13%" />
+                     </colgroup>
+                     <thead>
+                        <tr>
+                           <th>Medication</th>
+                           <th>Sig.</th>
+                           <th>Disp.</th>
+                           <th>Refills</th>
+                           <th>Start Date</th>
+                           <th>End Date</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ID="dcrx10">
+                           <td ID="med10">betamethasone, augmented, (DIPROLENE) 0.05 % ointment</td>
+                           <td ID="sig10">APPLY SPARINGLY TO AFFECTED AREA(S) TWICE DAILY</td>
+                           <td>
+                              <paragraph>1</paragraph>
+                           </td>
+                           <td />
+                           <td>12/30/2013</td>
+                           <td>12/30/2014</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.35" />
+                     <id root="41C23C24-3AA2-11E5-BCA2-005056B90075" />
+                     <code code="10183-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Discharge medication" />
+                     <entryRelationship typeCode="SUBJ">
+                        <substanceAdministration classCode="SBADM" moodCode="INT">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.16" />
+                           <id root="1.2.840.114350.1.13.368.2.7.2.798268" extension="53999963" />
+                           <text mediaType="text/xml">
+                              <reference value="#sig10" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IVL_TS">
+                              <low value="20131230" />
+                              <high value="20141230" />
+                           </effectiveTime>
+                           <doseQuantity value="2" />
+                           <consumable typeCode="CSM">
+                              <manufacturedProduct classCode="MANU">
+                                 <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                                 <templateId root="2.16.840.1.113883.10.20.1.53" />
+                                 <templateId root="2.16.840.1.113883.3.88.11.32.9" />
+                                 <templateId root="2.16.840.1.113883.3.88.11.83.8.2" />
+                                 <templateId root="2.16.840.1.113883.3.249.11.100.13" />
+                                 <templateId root="2.16.840.1.113883.10.20.22.4.23" />
+                                 <manufacturedMaterial>
+                                    <code code="848180" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Betamethasone, Augmented 0.05 % Topical Ointment">
+                                       <originalText>
+                                          <reference value="#med10" />
+                                       </originalText>
+                                       <translation code="258774" codeSystem="2.16.840.1.113883.6.208" codeSystemName="NDDF (First DataBank)" displayName="Betamethasone, Augmented 0.05 % Topical Ointment" />
+                                    </code>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </consumable>
+                           <author>
+                              <time value="20150521175235+0000" />
+                              <assignedAuthor>
+                                 <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+                                 <addr>
+                                    <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                                    <city>BELTON</city>
+                                    <state>MO</state>
+                                    <postalCode>64012</postalCode>
+                                    <country>US</country>
+                                 </addr>
+                                 <telecom use="WP" value="tel:+1-816-922-2161" />
+                                 <telecom use="WP" value="fax:+1-816-922-4690" />
+                                 <assignedPerson>
+                                    <name>
+                                       <given>Deborah</given>
+                                       <given>S</given>
+                                       <family>Davis</family>
+                                    </name>
+                                 </assignedPerson>
+                                 <representedOrganization>
+                                    <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+                                    <name>Saint Luke's Health System</name>
+                                    <telecom use="WP" value="tel:+1-816-932-3366" />
+                                    <addr>
+                                       <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+                                       <city>Kansas City</city>
+                                       <state>MO</state>
+                                       <postalCode>64111</postalCode>
+                                    </addr>
+                                 </representedOrganization>
+                              </assignedAuthor>
+                           </author>
+                           <entryRelationship typeCode="SUBJ" inversionInd="true">
+                              <act classCode="ACT" moodCode="INT">
+                                 <templateId root="2.16.840.1.113883.10.20.22.4.20" />
+                                 <code code="311401005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+                                 <text>
+                                    <reference value="#sig10" />
+                                 </text>
+                                 <statusCode code="completed" />
+                                 <author>
+                                    <time value="20150521175235+0000" />
+                                    <assignedAuthor>
+                                       <id root="2.16.840.1.113883.4.6" extension="1265485957" />
+                                       <addr>
+                                          <streetAddressLine>17140 Bel-Ray Place</streetAddressLine>
+                                          <city>BELTON</city>
+                                          <state>MO</state>
+                                          <postalCode>64012</postalCode>
+                                          <country>US</country>
+                                       </addr>
+                                       <telecom use="WP" value="tel:+1-816-922-2161" />
+                                       <telecom use="WP" value="fax:+1-816-922-4690" />
+                                       <assignedPerson>
+                                          <name>
+                                             <given>Deborah</given>
+                                             <given>S</given>
+                                             <family>Davis</family>
+                                          </name>
+                                       </assignedPerson>
+                                       <representedOrganization>
+                                          <id root="1.2.840.114350.1.13.368.2.7.2.688879" extension="45900" />
+                                          <name>Saint Luke's Health System</name>
+                                          <telecom use="WP" value="tel:+1-816-932-3366" />
+                                          <addr>
+                                             <streetAddressLine>4401 Wornall Rd</streetAddressLine>
+                                             <city>Kansas City</city>
+                                             <state>MO</state>
+                                             <postalCode>64111</postalCode>
+                                          </addr>
+                                       </representedOrganization>
+                                    </assignedAuthor>
+                                 </author>
+                              </act>
+                           </entryRelationship>
+                           <entryRelationship typeCode="REFR">
+                              <supply classCode="SPLY" moodCode="INT">
+                                 <templateId root="2.16.840.1.113883.10.20.22.4.17" />
+                                 <id root="1.2.840.114350.1.13.368.2.7.2.798268" extension="53999963" />
+                                 <statusCode code="completed" />
+                                 <repeatNumber value="1" />
+                                 <quantity value="1" />
+                                 <product>
+                                    <manufacturedProduct classCode="MANU">
+                                       <templateId root="1.3.6.1.4.1.19376.1.5.3.1.4.7.2" />
+                                       <templateId root="2.16.840.1.113883.10.20.1.53" />
+                                       <templateId root="2.16.840.1.113883.3.88.11.32.9" />
+                                       <templateId root="2.16.840.1.113883.3.88.11.83.8.2" />
+                                       <templateId root="2.16.840.1.113883.3.249.11.100.13" />
+                                       <templateId root="2.16.840.1.113883.10.20.22.4.23" />
+                                       <manufacturedMaterial>
+                                          <code code="848180" codeSystem="2.16.840.1.113883.6.88" codeSystemName="RxNorm" displayName="Betamethasone, Augmented 0.05 % Topical Ointment">
+                                             <originalText>
+                                                <reference value="#med10" />
+                                             </originalText>
+                                             <translation code="258774" codeSystem="2.16.840.1.113883.6.208" codeSystemName="NDDF (First DataBank)" displayName="Betamethasone, Augmented 0.05 % Topical Ointment" />
+                                          </code>
+                                       </manufacturedMaterial>
+                                    </manufacturedProduct>
+                                 </product>
+                              </supply>
+                           </entryRelationship>
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <templateId root="2.16.840.1.113883.10.20.1.47" />
+                                 <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Status" />
+                                 <statusCode code="completed" />
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="73425007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="No Longer Active" xsi:type="CE" />
+                              </observation>
+                           </entryRelationship>
+                        </substanceAdministration>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.10" />
+               <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Treatment plan" />
+               <title>Plan of Care</title>
+               <text>
+                  <paragraph>Not on file</paragraph>
+               </text>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.3.1" />
+               <id root="41C38BD8-3AA2-11E5-BCA2-005056B90075" />
+               <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="STUDIES SUMMARY" />
+               <title>Results</title>
+               <text>
+                  <content ID="nof12">Not on file</content>
+               </text>
+               <entry typeCode="DRIV">
+                  <organizer classCode="BATTERY" moodCode="EVN" nullFlavor="NI">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.1" />
+                     <id nullFlavor="NI" />
+                     <code nullFlavor="UNK" />
+                     <statusCode code="completed" />
+                     <effectiveTime>
+                        <low nullFlavor="UNK" />
+                     </effectiveTime>
+                     <component>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.2" />
+                           <id nullFlavor="NI" />
+                           <code nullFlavor="UNK" />
+                           <text>
+                              <reference nullFlavor="UNK" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime nullFlavor="UNK" />
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST" nullFlavor="NA" />
+                        </observation>
+                     </component>
+                  </organizer>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <templateId root="2.16.840.1.113883.10.20.22.2.8" />
+               <id root="41C3B9D2-3AA2-11E5-BCA2-005056B90075" />
+               <code code="51848-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Assessments" />
+               <title>Visit Diagnoses</title>
+               <text>
+                  <list>
+                     <item ID="vdx13">
+                        <caption ID="vdx13Name">Hepatitis, B Virus Carrier State</caption>
+                        <paragraph>Hepatitis B carrier</paragraph>
+                     </item>
+                  </list>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <templateId root="2.16.840.1.113883.10.20.22.4.80" />
+                     <id root="1.2.840.114350.1.13.368.2.7.2.696871" extension="14458" />
+                     <code code="29308-4" codeSystem="2.16.840.1.113883.6.1" displayName="Encounter Diagnosis" />
+                     <statusCode code="active" />
+                     <effectiveTime>
+                        <low nullFlavor="UNK" />
+                     </effectiveTime>
+                     <entryRelationship typeCode="SUBJ" inversionInd="false">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                           <id root="1.2.840.114350.1.13.368.2.7.2.696871" extension="14458" />
+                           <code code="55607006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Problem" />
+                           <text>
+                              <reference value="#vdx13Name" />
+                           </text>
+                           <statusCode code="completed" />
+                           <effectiveTime>
+                              <low nullFlavor="UNK" />
+                           </effectiveTime>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="235871004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Hepatitis B carrier" xsi:type="CD">
+                              <originalText>
+                                 <reference value="#vdx13Name" />
+                              </originalText>
+                              <translation code="V02.61" codeSystem="2.16.840.1.113883.6.103" codeSystemName="ICD-9CM" displayName="Hepatitis B carrier" />
+                              <translation code="Z22.51" codeSystem="2.16.840.1.113883.6.90" codeSystemName="ICD-10-CM" displayName="Hepatitis B carrier" />
+                           </value>
+                           <entryRelationship typeCode="REFR">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <code code="33999-4" codeSystem="2.16.840.1.113883.6.1" displayName="Status" />
+                                 <statusCode code="completed" />
+                                 <effectiveTime>
+                                    <low nullFlavor="UNK" />
+                                 </effectiveTime>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="55561003" codeSystem="2.16.840.1.113883.6.96" displayName="Active" xsi:type="CE" />
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+
+</ClinicalDocument>
