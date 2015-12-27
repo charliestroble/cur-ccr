@@ -120,7 +120,9 @@
             }
 
             .innerHead {
-                color:#0000ff;
+                font-size:15px;
+                color:green;
+                font-weight:normal;
             }
 
             .innerHead #HeaderText {
@@ -1359,13 +1361,13 @@
                 <xsl:value-of select="substring-before($telecom/@value,'tel:')"/> <xsl:value-of select="substring-after($telecom/@value,'tel:')"/>
             </xsl:when>
             <xsl:when test="contains($telecom/@value,'fax:+1-')">
-                <xsl:value-of select="substring-before($telecom/@value,'fax:+1-')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:+1-')"/> (<xsl:value-of select="$fax"/>)
+                <xsl:value-of select="substring-before($telecom/@value,'fax:+1-')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:+1-')"/> <span class="item-note"> (<xsl:value-of select="$fax"/>)</span>
             </xsl:when>
             <xsl:when test="contains($telecom/@value,'fax:+1')">
-                <xsl:value-of select="substring-before($telecom/@value,'fax:+1')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:+1')"/> (<xsl:value-of select="$fax"/>)
+                <xsl:value-of select="substring-before($telecom/@value,'fax:+1')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:+1')"/> <span class="item-note"> (<xsl:value-of select="$fax"/>)</span>
             </xsl:when>
             <xsl:when test="contains($telecom/@value,'fax:')">
-                <xsl:value-of select="substring-before($telecom/@value,'fax:')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:')"/> (<xsl:value-of select="$fax"/>)
+                <xsl:value-of select="substring-before($telecom/@value,'fax:')"/> <xsl:value-of select="substring-after($telecom/@value,'fax:')"/> <span class="item-note">(<xsl:value-of select="$fax"/>)</span>
             </xsl:when>
             <xsl:when test="contains($telecom/@value,'mailto://')">
                 <xsl:value-of select="substring-before($telecom/@value,'mailto://')"/> <xsl:value-of select="substring-after($telecom/@value,'mailto://')"/>
