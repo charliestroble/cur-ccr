@@ -2,6 +2,8 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:n3="http://www.w3.org/1999/xhtml" xmlns:n1="urn:hl7-org:v3" xmlns:n2="urn:hl7-org:v3/meta/voc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <xsl:output method="html" indent="yes" version="4.01" encoding="ISO-8859-1" doctype-public="-//W3C//DTD HTML 4.01//EN"/>
 
+
+
 <!-- CDA document -->
 
 <xsl:variable name="tableWidth">50%</xsl:variable>
@@ -22,14 +24,31 @@
 <xsl:template match="n1:ClinicalDocument">
         <html>
             <head>
+				
+				<!-- *** PRINT STYLES *** -->
+								
+				<style type="text/css" media="print"> 
+					
+					body { overflow: auto !important; }  
+					#DocBody { overflow: visible !important; height: auto !important; }  
+					div.printOnly { display: block; }  
+					span.printOnly { display: inline; } 
+					.SectionWrapper { page-break-inside:avoid; }
+			    
+			    </style>
+
+				<!-- *** Curatio STYLES *** -->
+
+				<style type="text/css"> 
+
+			    	h3 {color: blue;}
+
+			    </style>
+
                 <title>
                      <xsl:value-of select="$title"/>
                 </title>
 	    </head>
-            <xsl:comment>				
-              Derived from HL7 Finland R2 Tyylitiedosto: Tyyli_R2_B3_01.xslt
-	      Updated by   Calvin E. Beebe,   Mayo Clinic - Rochester Mn.
-            </xsl:comment>
             <body>            
 
                 <h2 align="center"><xsl:value-of select="$title"/></h2>
@@ -82,7 +101,7 @@
 		   </tr>
 		</table>
 		<br/>
-		<xsl:apply-templates select="n1:component/n1:structuredBody"/> 
+		<xsl:apply-templates select="n1:component/n1:structuredBody"/>
 		<xsl:call-template name="bottomline"/>
             </body>
         </html>
@@ -167,6 +186,8 @@
         <xsl:value-of select="substring ($date, 1, 4)"/>
 </xsl:template>
 
+
+
 <!-- StructuredBody -->
 <xsl:template match="n1:component/n1:structuredBody">
 		<xsl:apply-templates select="n1:component/n1:section"/>
@@ -217,12 +238,12 @@
         <xsl:apply-templates select="n1:caption"/>
         </span>
     </xsl:if>
-   <ul>
-    <xsl:for-each select="n1:item">
-	<li>
-          <xsl:apply-templates />
-	</li>
-     </xsl:for-each>
+    <ul>
+	    <xsl:for-each select="n1:item">
+		<li>
+	        <xsl:apply-templates />
+		</li>
+	    </xsl:for-each>
     </ul>	
 </xsl:template>
 
@@ -322,7 +343,7 @@
 	 and/or by generating <object> or <applet> tag with the correct
 	 params depending on the media type  @ID  =$imageRef     referencedObject
  -->
-     <xsl:template match="n1:renderMultiMedia">
+    <xsl:template match="n1:renderMultiMedia">
 	<xsl:variable name="imageRef" select="@referencedObject"/>
         <xsl:choose>
              <xsl:when test="//n1:regionOfInterest[@ID=$imageRef]">
@@ -424,8 +445,8 @@
 	</xsl:template>
 
 	<!--  Bottomline  -->
-     <xsl:template name="bottomline">
-     <b><xsl:text>Signed by: </xsl:text></b>
+    <xsl:template name="bottomline">
+    <b><xsl:text>Signed by: </xsl:text></b>
 	<xsl:call-template name="getName">
            <xsl:with-param name="name" 
                 select="/n1:ClinicalDocument/n1:legalAuthenticator/n1:assignedEntity/n1:assignedPerson/n1:name"/>
