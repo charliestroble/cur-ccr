@@ -22,89 +22,115 @@
 </xsl:template>
 
 <xsl:template match="n1:ClinicalDocument">
-        <html>
-            <head>
-				
-				<!-- *** PRINT STYLES *** -->
-								
-				<style type="text/css" media="print"> 
-					
-					body { overflow: auto !important; }  
-					#DocBody { overflow: visible !important; height: auto !important; }  
-					div.printOnly { display: block; }  
-					span.printOnly { display: inline; } 
-					.SectionWrapper { page-break-inside:avoid; }
-			    
-			    </style>
+	<html>
+		<head>
 
-				<!-- *** Curatio STYLES *** -->
+			<!-- *** PRINT STYLES *** -->
+			<style type="text/css" media="print"> 
 
-				<style type="text/css"> 
+				body { overflow: auto !important; }  
+				#DocBody { overflow: visible !important; height: auto !important; }  
+				div.printOnly { display: block; }  
+				span.printOnly { display: inline; } 
+				.SectionWrapper { page-break-inside:avoid; }
 
-			    	h3 {color: blue;}
+			</style>
 
-			    </style>
+			<!-- *** Curatio STYLES *** -->
+			<style type="text/css"> 
 
-                <title>
-                     <xsl:value-of select="$title"/>
-                </title>
-	    </head>
-            <body>            
+				header {
+					background: #ddd;
+				    position: absolute;
+				    left: 0;
+				    top: 0;
+				    bottom: 0;
+				    right: 75%;
+				    overflow: scroll;
+				    padding: 2em;
+				}
 
-                <h2 align="center"><xsl:value-of select="$title"/></h2>
-		<table width='100%'>
-		   <tr><td width='10%'><big><b><xsl:text>Patient: </xsl:text></b></big></td>
-		       <td width='40%'><big><xsl:call-template name="getName">
-   		                            <xsl:with-param name="name" 
- 		                     select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
-                                 </xsl:call-template></big></td>
-                       <td width='25%' align='right'><b><xsl:text>MRN: </xsl:text></b></td>
-		       <td width='25%'><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/></td>		       
-		   </tr>
+				.content-wrap {
+					background: #fff;
+				    position: absolute;
+				    left: 25%;
+				    top: 0;
+				    bottom: 0;
+				    right: 0;
+				    overflow-y: auto;    
+				    padding: 2em;
+				}
 
-		   <tr><td width='10%'><b><xsl:text>Birthdate: </xsl:text></b></td>
-                       <td width='40%'><xsl:call-template name="formatDate">
-   		                       <xsl:with-param name="date" 
- 		                select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
-                              </xsl:call-template></td>
-                   <td width='25%' align='right'><b><xsl:text>Sex: </xsl:text></b></td>
-		   <td width='25%'><xsl:variable name="sex" 
-                                select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:administrativeGenderCode/@code"/>
-                           <xsl:choose>
-                               <xsl:when test="$sex='M'">Male</xsl:when>
-                               <xsl:when test="$sex='F'">Female</xsl:when>
-                           </xsl:choose></td>		       
-		   </tr>
+			</style>
 
-                   <tr><td width='10%'><b><xsl:text>Consultant: </xsl:text></b></td>
-		       <td width='40%'>
+			<title>
+				<xsl:value-of select="$title"/>
+			</title>
+		</head>
+		<body>            
+			<header>
+				<h2><xsl:value-of select="$title"/></h2>
+				<table width='100%'>
+					<tr>
+						<td width='10%'><big><b><xsl:text>Patient: </xsl:text></b></big></td>
+						<td width='40%'><big><xsl:call-template name="getName">
+							<xsl:with-param name="name" 
+							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
+							</xsl:call-template></big>
+						</td>
+						<td width='25%' align='right'><b><xsl:text>MRN: </xsl:text></b></td>
+						<td width='25%'><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/></td>		       
+					</tr>
+					<tr>
+						<td width='10%'><b><xsl:text>Birthdate: </xsl:text></b></td>
+						<td width='40%'><xsl:call-template name="formatDate">
+							<xsl:with-param name="date" 
+							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
+							</xsl:call-template>
+						</td>
+						<td width='25%' align='right'><b><xsl:text>Sex: </xsl:text></b></td>
+						<td width='25%'><xsl:variable name="sex" 
+							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:administrativeGenderCode/@code"/>
+							<xsl:choose>
+								<xsl:when test="$sex='M'">Male</xsl:when>
+								<xsl:when test="$sex='F'">Female</xsl:when>
+							</xsl:choose>
+						</td>		       
+					</tr>
+					<tr>
+						<td width='10%'><b><xsl:text>Consultant: </xsl:text></b></td>
+						<td width='40%'>
+							<xsl:choose>
+								<xsl:when test="/n1:ClinicalDocument/n1:responsibleParty/n1:assignedEntity/n1:assignedPerson/n1:name">
+									<xsl:call-template name="getName">
+									<xsl:with-param name="name" 
+									select="/n1:ClinicalDocument/n1:responsibleParty/n1:assignedEntity/n1:assignedPerson/n1:name"/>
+									</xsl:call-template>      
+								</xsl:when>
+								<xsl:otherwise>
+									<xsl:call-template name="getName">
+									<xsl:with-param name="name" 
+									select="/n1:ClinicalDocument/n1:legalAuthenticator/n1:assignedEntity/n1:assignedPerson/n1:name"/>
+									</xsl:call-template>  
+								</xsl:otherwise>
+							</xsl:choose> </td>
+						<td width='25%' align='right'><b><xsl:text>Created On: </xsl:text></b></td>
+						<td width='25%'><xsl:call-template name="formatDate">
+							<xsl:with-param name="date" 
+							select="/n1:ClinicalDocument/n1:effectiveTime/@value"/>
+							</xsl:call-template>
+						</td>
+					</tr>
+				</table>
+				<xsl:apply-templates select="n1:component/n1:structuredBody/n1:allergies"/>
+			</header>
 
-                          <xsl:choose>
-                               <xsl:when test="/n1:ClinicalDocument/n1:responsibleParty/n1:assignedEntity/n1:assignedPerson/n1:name">
-                                <xsl:call-template name="getName">
-        		               <xsl:with-param name="name" 
-        		                    select="/n1:ClinicalDocument/n1:responsibleParty/n1:assignedEntity/n1:assignedPerson/n1:name"/>
-                               </xsl:call-template>      
-                               </xsl:when>
-                               <xsl:otherwise>
-                                  <xsl:call-template name="getName">
-        		               <xsl:with-param name="name" 
-        		                    select="/n1:ClinicalDocument/n1:legalAuthenticator/n1:assignedEntity/n1:assignedPerson/n1:name"/>
-                               </xsl:call-template>  
-                               </xsl:otherwise>
-                          </xsl:choose> </td>
-                       <td width='25%' align='right'><b><xsl:text>Created On: </xsl:text></b></td>
-		       <td width='25%'><xsl:call-template name="formatDate">
-   		                       <xsl:with-param name="date" 
- 		                select="/n1:ClinicalDocument/n1:effectiveTime/@value"/>
-                        </xsl:call-template></td>
-		   </tr>
-		</table>
-		<br/>
-		<xsl:apply-templates select="n1:component/n1:structuredBody"/>
-		<xsl:call-template name="bottomline"/>
-            </body>
-        </html>
+			<div class="content-wrap">
+				<xsl:apply-templates select="n1:component/n1:structuredBody"/>
+				<xsl:call-template name="bottomline"/>
+			</div>
+		</body>
+	</html>
 </xsl:template>
     
 <!-- Get a Name  -->
