@@ -126,7 +126,7 @@ Readers should be aware of the evolving "Using SNOMED CT in HL7 Version 3" imple
 			<allergies>
 				<section>
 					<code code="10155-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Allergies and Adverse Reactions</title>
+					<title>Allergies</title>
 					<text>
 						<list>
 							<item>Penicillin - Hives</item>
@@ -193,118 +193,10 @@ Readers should be aware of the evolving "Using SNOMED CT in HL7 Version 3" imple
 
 			<!-- 
 ********************************************************
-  History of Present Illness section
-********************************************************
--->
-			<component>
-				<section>
-					<code code="10164-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>History of Present Illness</title>
-					<text>
-						<content styleCode="Bold">Henry Levin, the 7<sup>th</sup>
-						</content> is a 67 year old male referred for further asthma management. Onset of asthma in his <content revised="delete">twenties</content>
-						<content revised="insert">teens</content>. He was hospitalized twice last year, and already twice this year. He has not been able to be weaned off steroids for the past several months. 
-						</text>
-				</section>
-			</component>
-			<!-- 
-********************************************************
-  Past Medical History section
-********************************************************
--->
-			<component>
-				<section>
-					<code code="10153-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Past Medical History</title>
-					<text>
-						<list>
-							<item>
-								<content ID="a1">Asthma</content>
-							</item>
-							<item>
-								<content ID="a2">Hypertension (see HTN.cda for details)</content>
-							</item>
-							<item>
-								<content ID="a3">Osteoarthritis, 
-									<content ID="a4">right knee</content>
-								</content>
-							</item>
-						</list>
-					</text>
-					<entry>
-						<observation classCode="COND" moodCode="EVN">
-							<code code="195967001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Asthma">
-								<originalText>
-									<reference value="#a1"/>
-								</originalText>
-							</code>
-							<statusCode code="completed"/>
-							<effectiveTime value="1950"/>
-							<reference typeCode="XCRPT">
-								<externalObservation>
-									<id root="2.16.840.1.113883.19.1.2765"/>
-								</externalObservation>
-							</reference>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="COND" moodCode="EVN">
-							<code code="59621000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="HTN">
-								<originalText>
-									<reference value="#a2"/>
-								</originalText>
-							</code>
-							<statusCode code="completed"/>
-							<reference typeCode="SPRT">
-								<seperatableInd value="false"/>
-								<externalDocument>
-									<id root="2.16.840.1.113883.19.4.789"/>
-									<text mediaType="multipart/related">
-										<reference value="HTN.cda"/>
-									</text>
-									<setId root="2.16.840.1.113883.19.7.2465"/>
-									<versionNumber value="1"/>
-								</externalDocument>
-							</reference>
-							<reference typeCode="XCRPT">
-								<externalObservation>
-									<id root="2.16.840.1.113883.19.1.2005"/>
-								</externalObservation>
-							</reference>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="COND" moodCode="EVN">
-							<code xsi:type="CD" code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Osteoarthritis">
-								<originalText>
-									<reference value="#a3"/>
-								</originalText>
-							</code>
-							<statusCode code="completed"/>
-							<targetSiteCode code="49076000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Knee joint">
-								<originalText>
-									<reference value="#a4"/>
-								</originalText>
-								<qualifier>
-									<name code="78615007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="with laterality"/>
-									<value code="24028007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="right"/>
-								</qualifier>
-							</targetSiteCode>
-							<reference typeCode="XCRPT">
-								<externalObservation>
-									<id root="2.16.840.1.113883.19.1.1805"/>
-								</externalObservation>
-							</reference>
-						</observation>
-					</entry>
-				</section>
-			</component>
-			<!-- 
-********************************************************
   Medications section
 ********************************************************
 -->
-			<component>
+			<meds>
 				<section>
 					<code code="10160-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
 					<title>Medications</title>
@@ -386,102 +278,9 @@ Readers should be aware of the evolving "Using SNOMED CT in HL7 Version 3" imple
 						</substanceAdministration>
 					</entry>
 				</section>
-			</component>
-			<!-- 
-********************************************************
-  Family History section
-********************************************************
--->
-			<component>
-				<section>
-					<code code="10157-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Family history</title>
-					<text>
-						<list>
-							<item>Father had fatal MI in his early 50's.</item>
-							<item>No cancer or diabetes.</item>
-						</list>
-					</text>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN">
-							<code code="22298006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="MI"/>
-							<statusCode code="completed"/>
-							<effectiveTime value="1970"/>
-							<subject>
-								<relatedSubject classCode="PRS">
-									<code code="FTH" codeSystem="2.16.840.1.113883.5.111"/>
-								</relatedSubject>
-							</subject>
-							<entryRelationship typeCode="CAUS">
-								<observation classCode="OBS" moodCode="EVN">
-									<code code="399347008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="death"/>
-									<statusCode code="completed"/>
-									<effectiveTime value="1970"/>
-								</observation>
-							</entryRelationship>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN" negationInd="true">
-							<code code="275937001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Family history of cancer"/>
-							<statusCode code="completed"/>
-							<effectiveTime>
-								<high value="20000407" inclusive="true"/>
-							</effectiveTime>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN">
-							<code code="160274005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="No family history of diabetes"/>
-							<statusCode code="completed"/>
-							<effectiveTime>
-								<high value="20000407" inclusive="true"/>
-							</effectiveTime>
-						</observation>
-					</entry>
-				</section>
-			</component>
-			<!-- 
-********************************************************
-  Social History section
-********************************************************
--->
-			<component>
-				<section>
-					<code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
-					<title>Social History</title>
-					<text>
-						<list>
-							<item>Smoking :: 1 PPD between the ages of 20 and 55, and then he quit.</item>
-							<item>Alcohol :: rare</item>
-						</list>
-					</text>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN">
-							<code code="266924008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="ex-heavy cigarette smoker (20-39/day)"/>
-							<statusCode code="completed"/>
-							<effectiveTime>
-								<low value="1955"/>
-								<high value="1990"/>
-							</effectiveTime>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN">
-							<code code="160625004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Date ceased smoking"/>
-							<statusCode code="completed"/>
-							<value xsi:type="TS" value="1990"/>
-						</observation>
-					</entry>
-					<entry>
-						<observation classCode="OBS" moodCode="EVN">
-							<code code="266917007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Trivial drinker -  less than 1/day"/>
-							<statusCode code="completed"/>
-						</observation>
-					</entry>
-				</section>
-			</component>
-			<!-- 
+			</meds>
+
+<!-- 
 ********************************************************
   Physical Exam section
 ********************************************************
@@ -844,6 +643,211 @@ Readers should be aware of the evolving "Using SNOMED CT in HL7 Version 3" imple
 					</component>
 				</section>
 			</component>
+
+			<!-- 
+********************************************************
+  History of Present Illness section
+********************************************************
+-->
+			<component>
+				<section>
+					<code code="10164-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>History of Present Illness</title>
+					<text>
+						<content styleCode="Bold">Henry Levin, the 7<sup>th</sup>
+						</content> is a 67 year old male referred for further asthma management. Onset of asthma in his <content revised="delete">twenties</content>
+						<content revised="insert">teens</content>. He was hospitalized twice last year, and already twice this year. He has not been able to be weaned off steroids for the past several months. 
+						</text>
+				</section>
+			</component>
+			<!-- 
+********************************************************
+  Past Medical History section
+********************************************************
+-->
+			<component>
+				<section>
+					<code code="10153-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Past Medical History</title>
+					<text>
+						<list>
+							<item>
+								<content ID="a1">Asthma</content>
+							</item>
+							<item>
+								<content ID="a2">Hypertension (see HTN.cda for details)</content>
+							</item>
+							<item>
+								<content ID="a3">Osteoarthritis, 
+									<content ID="a4">right knee</content>
+								</content>
+							</item>
+						</list>
+					</text>
+					<entry>
+						<observation classCode="COND" moodCode="EVN">
+							<code code="195967001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Asthma">
+								<originalText>
+									<reference value="#a1"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<effectiveTime value="1950"/>
+							<reference typeCode="XCRPT">
+								<externalObservation>
+									<id root="2.16.840.1.113883.19.1.2765"/>
+								</externalObservation>
+							</reference>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="COND" moodCode="EVN">
+							<code code="59621000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="HTN">
+								<originalText>
+									<reference value="#a2"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<reference typeCode="SPRT">
+								<seperatableInd value="false"/>
+								<externalDocument>
+									<id root="2.16.840.1.113883.19.4.789"/>
+									<text mediaType="multipart/related">
+										<reference value="HTN.cda"/>
+									</text>
+									<setId root="2.16.840.1.113883.19.7.2465"/>
+									<versionNumber value="1"/>
+								</externalDocument>
+							</reference>
+							<reference typeCode="XCRPT">
+								<externalObservation>
+									<id root="2.16.840.1.113883.19.1.2005"/>
+								</externalObservation>
+							</reference>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="COND" moodCode="EVN">
+							<code xsi:type="CD" code="396275006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Osteoarthritis">
+								<originalText>
+									<reference value="#a3"/>
+								</originalText>
+							</code>
+							<statusCode code="completed"/>
+							<targetSiteCode code="49076000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Knee joint">
+								<originalText>
+									<reference value="#a4"/>
+								</originalText>
+								<qualifier>
+									<name code="78615007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="with laterality"/>
+									<value code="24028007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="right"/>
+								</qualifier>
+							</targetSiteCode>
+							<reference typeCode="XCRPT">
+								<externalObservation>
+									<id root="2.16.840.1.113883.19.1.1805"/>
+								</externalObservation>
+							</reference>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			
+			<!-- 
+********************************************************
+  Family History section
+********************************************************
+-->
+			<component>
+				<section>
+					<code code="10157-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Family history</title>
+					<text>
+						<list>
+							<item>Father had fatal MI in his early 50's.</item>
+							<item>No cancer or diabetes.</item>
+						</list>
+					</text>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<code code="22298006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="MI"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="1970"/>
+							<subject>
+								<relatedSubject classCode="PRS">
+									<code code="FTH" codeSystem="2.16.840.1.113883.5.111"/>
+								</relatedSubject>
+							</subject>
+							<entryRelationship typeCode="CAUS">
+								<observation classCode="OBS" moodCode="EVN">
+									<code code="399347008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="death"/>
+									<statusCode code="completed"/>
+									<effectiveTime value="1970"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN" negationInd="true">
+							<code code="275937001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Family history of cancer"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<high value="20000407" inclusive="true"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<code code="160274005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="No family history of diabetes"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<high value="20000407" inclusive="true"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!-- 
+********************************************************
+  Social History section
+********************************************************
+-->
+			<component>
+				<section>
+					<code code="29762-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Social History</title>
+					<text>
+						<list>
+							<item>Smoking :: 1 PPD between the ages of 20 and 55, and then he quit.</item>
+							<item>Alcohol :: rare</item>
+						</list>
+					</text>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<code code="266924008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="ex-heavy cigarette smoker (20-39/day)"/>
+							<statusCode code="completed"/>
+							<effectiveTime>
+								<low value="1955"/>
+								<high value="1990"/>
+							</effectiveTime>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<code code="160625004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Date ceased smoking"/>
+							<statusCode code="completed"/>
+							<value xsi:type="TS" value="1990"/>
+						</observation>
+					</entry>
+					<entry>
+						<observation classCode="OBS" moodCode="EVN">
+							<code code="266917007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Trivial drinker -  less than 1/day"/>
+							<statusCode code="completed"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			
 			<!-- 
 ********************************************************
   Labs section

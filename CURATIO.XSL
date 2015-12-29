@@ -39,8 +39,66 @@
 			<!-- *** Curatio STYLES *** -->
 			<style type="text/css"> 
 
+				<!-- Browser Reset -->
+
+					<!-- http://meyerweb.com/eric/tools/css/reset/ 
+					   v2.0 | 20110126
+					   License: none (public domain)
+					-->
+
+					html, body, div, span, applet, object, iframe,
+					h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+					a, abbr, acronym, address, big, cite, code,
+					del, dfn, em, img, ins, kbd, q, s, samp,
+					small, strike, strong, sub, sup, tt, var,
+					b, u, i, center,
+					dl, dt, dd, ol, ul, li,
+					fieldset, form, label, legend,
+					table, caption, tbody, tfoot, thead, tr, th, td,
+					article, aside, canvas, details, embed, 
+					figure, figcaption, footer, header, hgroup, 
+					menu, nav, output, ruby, section, summary,
+					time, mark, audio, video {
+						margin: 0;
+						padding: 0;
+						border: 0;
+						font-size: 100%;
+						font: inherit;
+						vertical-align: baseline;
+					}
+					/* HTML5 display-role reset for older browsers */
+					article, aside, details, figcaption, figure, 
+					footer, header, hgroup, menu, nav, section {
+						display: block;
+					}
+					body {
+						line-height: 1;
+					}
+					ol, ul {
+						list-style: none;
+					}
+					blockquote, q {
+						quotes: none;
+					}
+					blockquote:before, blockquote:after,
+					q:before, q:after {
+						content: '';
+						content: none;
+					}
+					table {
+						border-collapse: collapse;
+						border-spacing: 0;
+					}
+
+				<!-- Global -->
+
+				body {
+					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+					font-size: 13px;
+				}
+
 				header {
-					background: #ddd;
+					background: #f1f1f1;
 				    position: absolute;
 				    left: 0;
 				    top: 0;
@@ -48,6 +106,7 @@
 				    right: 75%;
 				    overflow: scroll;
 				    padding: 2em;
+				    min-width:200px;
 				}
 
 				.content-wrap {
@@ -61,6 +120,72 @@
 				    padding: 2em;
 				}
 
+				h1 {
+					font-size: 32px;
+					color: #4DD865;
+					font-weight: normal;
+					margin:10px 0;
+					padding:0;
+				}
+
+				h2 {
+					font-size: 21px;
+					color: #4DD865;
+					font-weight: normal;
+					margin:20px 0;
+					padding:0;
+				}
+
+				p {
+					margin: 10px 0;
+					line-height: 16px;
+				}
+
+				.bold {
+					font-weight: bold;
+				}
+
+				.item {
+					font-weight:bold;
+				}
+
+				.item-note {
+					color: #808080;
+					font-weight:normal;
+				}
+
+				.item-label {
+					text-transform: uppercase;
+					color: #808080;
+					font-size: 11px;
+				}
+
+				.section {
+					padding-bottom: 20px;
+					border-bottom: 1px solid #e0e0e0;
+				}
+
+				ul { 
+					margin: 10px 0;
+				}
+
+				ul li {
+					line-height: 16px;
+				}
+
+				<!-- Patient Demographics -->
+
+				.patient-description {
+					font-size: 15px;
+					font-style: italic;
+					line-height: 18px;
+					margin:20px 0 20px 0;
+				}
+
+				.patient-description p {
+					margin:10px 0 5px 0;
+				}
+
 			</style>
 
 			<title>
@@ -69,35 +194,57 @@
 		</head>
 		<body>            
 			<header>
-				<h2><xsl:value-of select="$title"/></h2>
-				<table width='100%'>
-					<tr>
-						<td width='10%'><big><b><xsl:text>Patient: </xsl:text></b></big></td>
-						<td width='40%'><big><xsl:call-template name="getName">
-							<xsl:with-param name="name" 
-							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
-							</xsl:call-template></big>
-						</td>
-						<td width='25%' align='right'><b><xsl:text>MRN: </xsl:text></b></td>
-						<td width='25%'><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/></td>		       
-					</tr>
-					<tr>
-						<td width='10%'><b><xsl:text>Birthdate: </xsl:text></b></td>
-						<td width='40%'><xsl:call-template name="formatDate">
-							<xsl:with-param name="date" 
-							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
-							</xsl:call-template>
-						</td>
-						<td width='25%' align='right'><b><xsl:text>Sex: </xsl:text></b></td>
-						<td width='25%'><xsl:variable name="sex" 
+
+				<!-- Item structure template
+				<ul>
+					<li class="item-label"></li>
+					<li class="item"></li>
+					<li class="item-note>"></li>
+				</ul>
+				-->
+
+				<h1>
+					<xsl:call-template name="getName">
+						<xsl:with-param name="name" select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
+					</xsl:call-template>
+				</h1>
+				<p class="item">
+					<xsl:call-template name="formatDate">
+						<xsl:with-param name="date" 
+						select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
+					</xsl:call-template><span class="item-note"> (DOB)</span>
+				<br/>
+				<xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/><span class="item-note"> (MRN)</span></p>
+				<p class="patient-description">
+					<span class="bold"><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name/n1:given"/></span>
+					 is a 
+					 <span class="bold">(Marital Status) (Race) <xsl:variable name="sex" 
 							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:administrativeGenderCode/@code"/>
 							<xsl:choose>
 								<xsl:when test="$sex='M'">Male</xsl:when>
 								<xsl:when test="$sex='F'">Female</xsl:when>
-							</xsl:choose>
-						</td>		       
-					</tr>
-					<tr>
+							</xsl:choose></span>
+					 who observes 
+					 <span class="bold">(Religion)</span>
+					  and speaks 
+					  <span class="bold">(language)</span>.
+				</p>
+
+				<ul>
+					<li class="item-label">Address</li>
+					<li class="item">(17 Daws Road<br />Portland, OR 97006)</li>
+				</ul>
+
+				<ul>
+					<li class="item-label">Telephone</li>
+					<li class="item">(415.555.1229)</li>
+				</ul>
+				
+				
+
+				<!-- SAVED FOR FUTURE PLACEMENT -->
+
+					<!-- <tr>
 						<td width='10%'><b><xsl:text>Consultant: </xsl:text></b></td>
 						<td width='40%'>
 							<xsl:choose>
@@ -120,13 +267,20 @@
 							select="/n1:ClinicalDocument/n1:effectiveTime/@value"/>
 							</xsl:call-template>
 						</td>
-					</tr>
-				</table>
+					</tr> -->
+				
 				<xsl:apply-templates select="n1:component/n1:structuredBody/n1:allergies"/>
 			</header>
 
 			<div class="content-wrap">
+				<div>
+				<xsl:for-each select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration">
+					<p><xsl:value-of select="/n1:ClinicalDocument/n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration/n1:text"/> / <xsl:value-of select="/n1:ClinicalDocument/n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration/n1:doseQuantity"/></p>
+				</xsl:for-each>
+				</div>
+
 				<xsl:apply-templates select="n1:component/n1:structuredBody"/>
+
 				<xsl:call-template name="bottomline"/>
 			</div>
 		</body>
@@ -221,20 +375,18 @@
 
 <!-- Component/Section -->    
 <xsl:template match="n1:component/n1:section">
-	<xsl:apply-templates select="n1:title"/>
-		
-	<xsl:apply-templates select="n1:text"/>
-					
-        <xsl:apply-templates select="n1:component/n1:section"/>
+	<div class="section">
+		<xsl:apply-templates select="n1:title"/>
+		<xsl:apply-templates select="n1:text"/>				
+		<xsl:apply-templates select="n1:component/n1:section"/>
+    </div>
      
 
 </xsl:template>
 
 <!--   Title  -->
 <xsl:template match="n1:title">
-	<h3><span style="font-weight:bold;">	
-	<xsl:value-of select="."></xsl:value-of>
-	</span></h3>
+	<h2><xsl:value-of select="."></xsl:value-of></h2>
 </xsl:template>
 
 <!--   Text   -->
@@ -266,7 +418,7 @@
     </xsl:if>
     <ul>
 	    <xsl:for-each select="n1:item">
-		<li>
+		<li class="item">
 	        <xsl:apply-templates />
 		</li>
 	    </xsl:for-each>
