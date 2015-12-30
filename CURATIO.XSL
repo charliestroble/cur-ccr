@@ -147,17 +147,23 @@
 
 				.item {
 					font-weight:bold;
+					font-size: 15px;
 				}
 
 				.item-note {
 					color: #808080;
 					font-weight:normal;
+					font-style: italic;
 				}
 
 				.item-label {
 					text-transform: uppercase;
 					color: #808080;
 					font-size: 11px;
+				}
+
+				.item-date {
+					color: #55c9dc;
 				}
 
 				.section {
@@ -170,7 +176,7 @@
 				}
 
 				ul li {
-					line-height: 16px;
+					padding: 3px 0;
 				}
 
 				<!-- Patient Demographics -->
@@ -273,11 +279,15 @@
 			</header>
 
 			<div class="content-wrap">
-				<div>
-				<xsl:for-each select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration">
-					<p><xsl:value-of select="/n1:ClinicalDocument/n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration/n1:text"/> / <xsl:value-of select="/n1:ClinicalDocument/n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry/n1:substanceAdministration/n1:doseQuantity"/></p>
+				
+				<xsl:for-each select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry">
+				<ul>
+					<li class="item-date">March 28, 2012</li>
+					<li class="item"><!-- <xsl:value-of select="." /> -->
+						<xsl:value-of select="n1:substanceAdministration/n1:consumable/n1:manufacturedProduct/n1:manufacturedLabeledDrug/n1:code/@displayName" /> / <xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@value" /><xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@unit" /></li>
+					<li class="item-note">Instructions</li>
+				</ul>
 				</xsl:for-each>
-				</div>
 
 				<xsl:apply-templates select="n1:component/n1:structuredBody"/>
 
