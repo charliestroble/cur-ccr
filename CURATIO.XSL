@@ -105,7 +105,7 @@
 				    bottom: 0;
 				    right: 75%;
 				    overflow: scroll;
-				    padding: 2em;
+				    padding: 30px;
 				    min-width:200px;
 				}
 
@@ -117,14 +117,14 @@
 				    bottom: 0;
 				    right: 0;
 				    overflow-y: auto;    
-				    padding: 2em;
+				    padding: 30px 50px;
 				}
 
 				h1 {
 					font-size: 32px;
 					color: #4DD865;
 					font-weight: normal;
-					margin:10px 0;
+					margin-bottom: 10px;
 					padding:0;
 				}
 
@@ -132,13 +132,21 @@
 					font-size: 21px;
 					color: #4DD865;
 					font-weight: normal;
-					margin:20px 0;
+					margin-bottom: 20px;
 					padding:0;
 				}
 
 				p {
 					margin: 10px 0;
 					line-height: 16px;
+				}
+
+				ul { 
+					margin: 10px 0;
+				}
+
+				ul li {
+					padding: 3px 0;
 				}
 
 				.bold {
@@ -169,14 +177,7 @@
 				.section {
 					padding-bottom: 20px;
 					border-bottom: 1px solid #e0e0e0;
-				}
-
-				ul { 
-					margin: 10px 0;
-				}
-
-				ul li {
-					padding: 3px 0;
+					margin-bottom: 20px;
 				}
 
 				<!-- Patient Demographics -->
@@ -192,6 +193,10 @@
 					margin:10px 0 5px 0;
 				}
 
+				.allergies li {
+					font-size: 13px;
+				}
+
 			</style>
 
 			<title>
@@ -201,51 +206,52 @@
 		<body>            
 			<header>
 
-				<!-- Item structure template
+				<!--
+				Item structure template
 				<ul>
 					<li class="item-label"></li>
 					<li class="item"></li>
 					<li class="item-note>"></li>
 				</ul>
 				-->
+				<div class="section">
+					<h1>
+						<xsl:call-template name="getName">
+							<xsl:with-param name="name" select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
+						</xsl:call-template>
+					</h1>
+					<p class="item">
+						<xsl:call-template name="formatDate">
+							<xsl:with-param name="date" 
+							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
+						</xsl:call-template><span class="item-note"> (DOB)</span>
+					<br/>
+					<xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/><span class="item-note"> (MRN)</span></p>
+					<p class="patient-description">
+						<span class="bold"><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name/n1:given"/></span>
+						 is a 
+						 <span class="bold">(Marital Status) (Race) <xsl:variable name="sex" 
+								select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:administrativeGenderCode/@code"/>
+								<xsl:choose>
+									<xsl:when test="$sex='M'">Male</xsl:when>
+									<xsl:when test="$sex='F'">Female</xsl:when>
+								</xsl:choose></span>
+						 who observes 
+						 <span class="bold">(Religion)</span>
+						  and speaks 
+						  <span class="bold">(language)</span>.
+					</p>
 
-				<h1>
-					<xsl:call-template name="getName">
-						<xsl:with-param name="name" select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name"/>
-					</xsl:call-template>
-				</h1>
-				<p class="item">
-					<xsl:call-template name="formatDate">
-						<xsl:with-param name="date" 
-						select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:birthTime/@value"/>
-					</xsl:call-template><span class="item-note"> (DOB)</span>
-				<br/>
-				<xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:id/@extension"/><span class="item-note"> (MRN)</span></p>
-				<p class="patient-description">
-					<span class="bold"><xsl:value-of select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:name/n1:given"/></span>
-					 is a 
-					 <span class="bold">(Marital Status) (Race) <xsl:variable name="sex" 
-							select="/n1:ClinicalDocument/n1:recordTarget/n1:patientRole/n1:patient/n1:administrativeGenderCode/@code"/>
-							<xsl:choose>
-								<xsl:when test="$sex='M'">Male</xsl:when>
-								<xsl:when test="$sex='F'">Female</xsl:when>
-							</xsl:choose></span>
-					 who observes 
-					 <span class="bold">(Religion)</span>
-					  and speaks 
-					  <span class="bold">(language)</span>.
-				</p>
+					<ul>
+						<li class="item-label">Address</li>
+						<li class="item">(17 Daws Road<br />Portland, OR 97006)</li>
+					</ul>
 
-				<ul>
-					<li class="item-label">Address</li>
-					<li class="item">(17 Daws Road<br />Portland, OR 97006)</li>
-				</ul>
-
-				<ul>
-					<li class="item-label">Telephone</li>
-					<li class="item">(415.555.1229)</li>
-				</ul>
-				
+					<ul>
+						<li class="item-label">Telephone</li>
+						<li class="item">(415.555.1229)</li>
+					</ul>
+				</div>
 				
 
 				<!-- SAVED FOR FUTURE PLACEMENT -->
@@ -275,19 +281,36 @@
 						</td>
 					</tr> -->
 				
-				<xsl:apply-templates select="n1:component/n1:structuredBody/n1:allergies"/>
+				<!-- <xsl:apply-templates select="n1:component/n1:structuredBody/n1:allergies"/> -->
+
+				<div class="section allergies">
+					<h2><xsl:value-of select="n1:component/n1:structuredBody/n1:allergies/n1:section/n1:title" /></h2>
+					
+					<xsl:for-each select="n1:component/n1:structuredBody/n1:allergies/n1:section/n1:entry">
+						<ul>
+							<li class="item"><xsl:value-of select="n1:observation/n1:entryRelationship/n1:observation/n1:code/@displayName" /></li>
+							<li class="item-note"><xsl:value-of select="n1:observation/n1:code/@displayName" /></li>
+						</ul>
+					</xsl:for-each>
+				</div>
+			
+
 			</header>
 
 			<div class="content-wrap">
 				
-				<xsl:for-each select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry">
-				<ul>
-					<li class="item-date">March 28, 2012</li>
-					<li class="item"><!-- <xsl:value-of select="." /> -->
-						<xsl:value-of select="n1:substanceAdministration/n1:consumable/n1:manufacturedProduct/n1:manufacturedLabeledDrug/n1:code/@displayName" /> / <xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@value" /><xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@unit" /></li>
-					<li class="item-note">Instructions</li>
-				</ul>
-				</xsl:for-each>
+				<div class="section">
+					<h2><xsl:value-of select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:title" /></h2>
+
+					<xsl:for-each select="n1:component/n1:structuredBody/n1:meds/n1:section/n1:entry">
+					<ul>
+						<li class="item-date">(March 28, 2012)</li>
+						<li class="item"><!-- <xsl:value-of select="." /> -->
+							<xsl:value-of select="n1:substanceAdministration/n1:consumable/n1:manufacturedProduct/n1:manufacturedLabeledDrug/n1:code/@displayName" /> / <xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@value" /><xsl:value-of select="n1:substanceAdministration/n1:doseQuantity/@unit" /></li>
+						<li class="item-note">(Instructions)</li>
+					</ul>
+					</xsl:for-each>
+				</div>
 
 				<xsl:apply-templates select="n1:component/n1:structuredBody"/>
 
@@ -305,7 +328,6 @@
               <xsl:value-of select="$name/n1:given"/>
               <xsl:text> </xsl:text>
               <xsl:value-of select="$name/n1:family"/>
-              <xsl:text> </xsl:text>
               <xsl:if test="$name/n1:suffix">
                   <xsl:text>, </xsl:text>
                   <xsl:value-of select="$name/n1:suffix"/>
